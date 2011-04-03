@@ -6,12 +6,10 @@ let mapleader = ","
 
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-" silent! call pathogen#runtime_append_all_bundles()
 
 filetype off
 
-
-"colorscheme ir_black
+colorscheme ir_black
 
 set background=dark
 syntax on             " Enable syntax highlighting
@@ -96,13 +94,13 @@ let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 " Maps
 
 nmap <silent> <Leader>p :CommandT<CR>
+map <D-r> :CommandTFlush<CR>
 map <silent> <Leader>r :!ctags --extra=+f -R *<CR><CR>
 map <Leader>s :Rake<CR>
 " map <Leader>c :.Rake<CR>
 map <Leader>c <plug>NERDCommenterToggle
 noremap <Leader>n :Vex<CR>
 
-nmap <silent> <Leader>p :CommandT<CR>
 set wildignore+=*.o,*.obj,.git,tmp/sass-cache
 
 " allow a more natural style of line editing in :ex mode
