@@ -1,17 +1,12 @@
 " VIM configuration
 "
-
-set nocompatible      " We're running Vim, not Vi!
-let mapleader = ","
-
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
 filetype off
+silent! call pathogen#runtime_append_all_bundles()
 
 colorscheme ir_black
 
 set background=dark
+set nocompatible      " We're running Vim, not Vi!
 syntax on             " Enable syntax highlighting
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
@@ -38,8 +33,8 @@ set linebreak         " wrap at word
 set ch=2              " make command line two lines
 
 set backspace=indent,eol,start " make backspace a more flexible
-set backupdir=~/.vim_backup " where to put backup files
-set directory=~/.vim_tmp
+set backupdir=~/.vim/backup " where to put backup files
+set directory=~/.vim/tmp
 
 set foldmethod=syntax
 
@@ -93,15 +88,26 @@ let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " Maps
 
+let mapleader = ","
+
 nmap <silent> <Leader>p :CommandT<CR>
-map <D-r> :CommandTFlush<CR>
 map <silent> <Leader>r :!ctags --extra=+f -R *<CR><CR>
 map <Leader>s :Rake<CR>
 " map <Leader>c :.Rake<CR>
 map <Leader>c <plug>NERDCommenterToggle
-noremap <Leader>n :Vex<CR>
+" noremap <Leader> :Vex<CR>ERDTree
+map <silent> <Leader>n :NERDTreeToggle<CR>
 
+
+" Command-T
 set wildignore+=*.o,*.obj,.git,tmp/sass-cache
+" Cmd-R: Reload commandT
+map <D-r> :CommandTFlush<CR>
+" Leader p: CommandT
+nmap <silent> <Leader>p :CommandT<CR>
+
+" CRTL-L: Redraw screen and hide highlighted search (nohlsearch)
+nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " allow a more natural style of line editing in :ex mode
 cnoremap <C-A> <Home>
