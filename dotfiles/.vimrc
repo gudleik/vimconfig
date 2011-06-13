@@ -3,7 +3,7 @@
 filetype off
 silent! call pathogen#runtime_append_all_bundles()
 
-colorscheme ir_black
+" colorscheme ir_black
 
 set background=dark
 set nocompatible      " We're running Vim, not Vi!
@@ -33,8 +33,8 @@ set linebreak         " wrap at word
 set ch=2              " make command line two lines
 
 set backspace=indent,eol,start " make backspace a more flexible
-set backupdir=~/.vim/backup " where to put backup files
-set directory=~/.vim/tmp
+set backupdir=~/.vim_backup " where to put backup files
+set directory=~/.vim_tmp
 
 set foldmethod=syntax
 
