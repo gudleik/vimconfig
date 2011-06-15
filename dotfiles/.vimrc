@@ -74,17 +74,33 @@ augroup RUBY
   autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 augroup END
 
+" rspec files
 au BufNewFile,BufRead *_spec.rb set filetype=ruby.rspec
 
+" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+
 autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+
+" Opens an edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>e
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Opens a tab edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>t
+map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+" Enable syntastic syntax checking
+let g:syntastic_enable_signs=1
+let g:syntastic_quiet_warnings=1
 
 " Plugins
 
 let Tlist_Use_Right_Window=1
 nnoremap <silent> <F8> :TlistToggle<CR>
 
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+" let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " Maps
 

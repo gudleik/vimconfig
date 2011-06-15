@@ -52,3 +52,12 @@ set lines=50
 
 " Tab headings 
 set gtl=%t gtt=%F
+
+" Command-/ to toggle comments
+map <D-/> <plug>NERDCommenterToggle<CR>
+imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
+
+" Command-][ to increase/decrease indentation
+vmap <D-]> >gv
+vmap <D-[> <gv
+
