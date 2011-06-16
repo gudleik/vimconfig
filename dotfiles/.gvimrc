@@ -30,8 +30,8 @@ if has("gui_running")
   " colorscheme wombat
   " colorscheme mac_classic
   " colorscheme ir_black
-  set background=light
   colorscheme solarized
+  set background=dark
   set fuopt=maxhorz,maxvert
   syntax on
 
