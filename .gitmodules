@@ -133,3 +133,6 @@
 [submodule "vim/bundle/vim-slim"]
 	path = vim/bundle/vim-slim
 	url = git://github.com/bbommarito/vim-slim.git
+[submodule "vim/bundle/sweet-rspec-vim"]
+	path = vim/bundle/sweet-rspec-vim
+	url = git://github.com/duskhacker/sweet-rspec-vim.git
