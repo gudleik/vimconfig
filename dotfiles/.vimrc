@@ -82,14 +82,6 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set f
 
 autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
 
-" Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Opens a tab edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>t
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
@@ -106,6 +98,20 @@ nnoremap <silent> <F8> :TlistToggle<CR>
 
 let mapleader = ","
 
+" Opens an edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>e
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Opens a tab edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>t
+map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+" Sweet VIM Rspec
+set macmeta
+map <D-r> :SweetVimRspecRunFile<CR>
+map <D-R> :SweetVimRspecRunFocused<CR>
+map <M-D-r> :SweetVimRspecRunPrevious<CR>
+
 nmap <silent> <Leader>p :CommandT<CR>
 map <silent> <Leader>r :!ctags --extra=+f -R *<CR><CR>
 map <Leader>s :Rake<CR>
@@ -118,7 +124,7 @@ map <silent> <Leader>n :NERDTreeToggle<CR>
 " Command-T
 set wildignore+=*.o,*.obj,.git,tmp/sass-cache
 " Cmd-R: Reload commandT
-map <D-r> :CommandTFlush<CR>
+map <D-T> :CommandTFlush<CR>
 " Leader p: CommandT
 nmap <silent> <Leader>p :CommandT<CR>
 
