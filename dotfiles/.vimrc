@@ -107,12 +107,10 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Sweet VIM Rspec
-set macmeta
-map <D-r> :SweetVimRspecRunFile<CR>
-map <D-R> :SweetVimRspecRunFocused<CR>
-map <M-D-r> :SweetVimRspecRunPrevious<CR>
+" map <D-r> :SweetVimRspecRunFile<CR>
+" map <D-R> :SweetVimRspecRunFocused<CR>
+" map <M-D-r> :SweetVimRspecRunPrevious<CR>
 
-nmap <silent> <Leader>p :CommandT<CR>
 map <silent> <Leader>r :!ctags --extra=+f -R *<CR><CR>
 map <Leader>s :Rake<CR>
 " map <Leader>c :.Rake<CR>
@@ -124,7 +122,7 @@ map <silent> <Leader>n :NERDTreeToggle<CR>
 " Command-T
 set wildignore+=*.o,*.obj,.git,tmp/sass-cache
 " Cmd-R: Reload commandT
-map <D-T> :CommandTFlush<CR>
+map <D-r> :CommandTFlush<CR>
 " Leader p: CommandT
 nmap <silent> <Leader>p :CommandT<CR>
 
