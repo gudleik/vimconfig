@@ -77,6 +77,9 @@ augroup END
 " rspec files
 au BufNewFile,BufRead *_spec.rb set filetype=ruby.rspec
 
+" RABL is ruby
+au BufNewFile,BufRead *.rabl set filetype=ruby.rspec
+
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 
