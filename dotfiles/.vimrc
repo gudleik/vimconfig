@@ -4,6 +4,7 @@ filetype off
 silent! call pathogen#runtime_append_all_bundles()
 
 " colorscheme ir_black
+colorscheme solarized
 
 set background=dark
 set nocompatible      " We're running Vim, not Vi!
