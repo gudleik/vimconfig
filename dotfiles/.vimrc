@@ -5,8 +5,8 @@ silent! call pathogen#runtime_append_all_bundles()
 
 " colorscheme ir_black
 colorscheme solarized
+set background=light
 
-set background=dark
 set nocompatible      " We're running Vim, not Vi!
 syntax on             " Enable syntax highlighting
 filetype on           " Enable filetype detection
@@ -72,9 +72,10 @@ augroup RUBY
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
   autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
   " next line causes macvim to crash :(
-  " autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+  autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
   autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 augroup END
+compiler ruby
 
 " rspec files
 au BufNewFile,BufRead *_spec.rb set filetype=ruby.rspec
