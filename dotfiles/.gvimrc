@@ -14,6 +14,7 @@ if has("gui_macvim")
   set guifont=Bitstream\ Vera\ Sans\ Mono:h16
   set guioptions-=T  " remove toolbar
   set stal=2 " turn on tabs by default
+  set noballooneval
 
   set macmeta
 
