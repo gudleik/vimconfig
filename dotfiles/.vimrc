@@ -5,7 +5,7 @@ silent! call pathogen#runtime_append_all_bundles()
 
 " colorscheme ir_black
 colorscheme solarized
-set background=light
+set background=dark
 
 set nocompatible      " We're running Vim, not Vi!
 syntax on             " Enable syntax highlighting
@@ -126,7 +126,7 @@ map <silent> <Leader>n :NERDTreeToggle<CR>
 
 
 " Command-T
-set wildignore+=*.o,*.obj,.git,tmp/sass-cache
+set wildignore+=*.o,*.obj,*.png,*.gif,*.jpg,.git,tmp/*,vendor/ruby/*,vendor/cache/*
 " Cmd-R: Reload commandT
 map <D-r> :CommandTFlush<CR>
 " Leader p: CommandT
