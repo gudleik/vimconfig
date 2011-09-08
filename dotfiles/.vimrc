@@ -38,6 +38,7 @@ set backupdir=~/.vim_backup " where to put backup files
 set directory=~/.vim_tmp
 
 set foldmethod=syntax
+set foldlevel=20
 
 set laststatus=2 " always show the status line
 if has("mac")
