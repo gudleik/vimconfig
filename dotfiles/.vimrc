@@ -123,12 +123,14 @@ map ,, <C-^>
 map <silent> <Leader>r :!ctags --extra=+f -R *<CR><CR>
 map <Leader>s :Rake<CR>
 " map <Leader>c :.Rake<CR>
-map <Leader>c <plug>NERDCommenterToggle
+"map <Leader>c <plug>NERDCommenterToggle
 " noremap <Leader> :Vex<CR>ERDTree
-map <silent> <Leader>n :NERDTreeToggle \| :silent NERDTreeMirror<CR>
+"map <silent> <Leader>n :NERDTreeToggle \| :silent NERDTreeMirror<CR>
 
-let NERDTreeQuitOnOpen=0
-let NERDTreeWinSize=35
+map <silent> <D-/> :TComment <CR>
+
+"let NERDTreeQuitOnOpen=0
+"let NERDTreeWinSize=35
 
 " Command-T
 set wildignore+=*.o,*.obj,*.png,*.gif,*.jpg,.git,tmp/*,vendor/ruby/*,vendor/cache/*

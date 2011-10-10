@@ -57,8 +57,8 @@ set lines=50
 set gtl=%t gtt=%F
 
 " Command-/ to toggle comments
-map <D-/> <plug>NERDCommenterToggle<CR>
-imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
+"map <D-/> <plug>NERDCommenterToggle<CR>
+"imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
 
 " Command-][ to increase/decrease indentation
 vmap <D-]> >gv
