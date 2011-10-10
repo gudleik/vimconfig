@@ -94,10 +94,6 @@
 	path = vim/bundle/vim-javascript
 	url = git://github.com/pangloss/vim-javascript.git
   ignore = untracked
-[submodule "vim/bundle/nerdcommenter"]
-	path = vim/bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
-  ignore = untracked
 [submodule "vim/bundle/vim-rake"]
 	path = vim/bundle/vim-rake
 	url = git://github.com/tpope/vim-rake.git
@@ -161,10 +157,6 @@
 [submodule "vim/bundle/vim-coffee-script"]
 	path = vim/bundle/vim-coffee-script
 	url = git://github.com/grayrest/vim-coffee-script.git
-  ignore = untracked
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
   ignore = untracked
 [submodule "vim/bundle/vim-slim"]
 	path = vim/bundle/vim-slim
