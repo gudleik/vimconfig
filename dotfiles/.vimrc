@@ -112,6 +112,9 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Normal mode: <Leader>t
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
+" Switch between files
+map ,, <C-^>
+
 " Sweet VIM Rspec
 " map <D-r> :SweetVimRspecRunFile<CR>
 " map <D-R> :SweetVimRspecRunFocused<CR>
