@@ -34,7 +34,7 @@ if has("gui_running")
   " colorscheme mac_classic
   " colorscheme ir_black
   " colorscheme solarized
-  set background=dark
+  set background=light
   set fuopt=maxhorz,maxvert
   syntax on
 
@@ -74,9 +74,9 @@ vmap <D-[> <gv
 " ------------------------------------------------------------------
 " Solarized Colorscheme Config
 " ------------------------------------------------------------------
-let g:solarized_visibility="low"    "default value is normal
+let g:solarized_visibility="normal"    "default value is normal
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 " ------------------------------------------------------------------
 
