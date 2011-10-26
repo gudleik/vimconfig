@@ -121,7 +121,7 @@ map ,, <C-^>
 " map <M-D-r> :SweetVimRspecRunPrevious<CR>
 
 map <silent> <Leader>r :!ctags --extra=+f -R *<CR><CR>
-map <Leader>s :Rake<CR>
+map <Leader>s :AV<CR>
 " map <Leader>c :.Rake<CR>
 "map <Leader>c <plug>NERDCommenterToggle
 " noremap <Leader> :Vex<CR>ERDTree
