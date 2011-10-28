@@ -65,6 +65,9 @@ set visualbell
 set nu
 set grepprg=ack " FTW
 
+let loaded_netrw=1
+let loaded_netrwPlugin=1
+
 augroup RUBY
   autocmd!
   autocmd BufNewFile,BufRead */spec/**/*.rb,*_spec.rb compiler rspec
