@@ -133,7 +133,7 @@ map <Leader>s :AV<CR>
 " noremap <Leader> :Vex<CR>ERDTree
 "map <silent> <Leader>n :NERDTreeToggle \| :silent NERDTreeMirror<CR>
 
-map <silent> <D-/> :TComment <CR>
+" map <silent> <D-/> :TComment <CR>
 
 "let NERDTreeQuitOnOpen=0
 "let NERDTreeWinSize=35
