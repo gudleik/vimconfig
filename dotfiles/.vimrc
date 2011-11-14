@@ -91,6 +91,9 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set f
 
 autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
 
+" Open fabricator files with :Rfabricator your_model
+autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
+
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
