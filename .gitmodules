@@ -170,3 +170,7 @@
 	path = vim/bundle/tcomment
 	url = git://github.com/tomtom/tcomment_vim.git
   ignore = untracked
+[submodule "vim/bundle/vim-ruby-doc"]
+	path = vim/bundle/vim-ruby-doc
+	url = git://github.com/lucapette/vim-ruby-doc.git
+  ignore = untracked
