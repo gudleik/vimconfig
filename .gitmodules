@@ -174,3 +174,7 @@
 	path = vim/bundle/vim-ruby-doc
 	url = git://github.com/lucapette/vim-ruby-doc.git
   ignore = untracked
+[submodule "vim/bundle/vim-handlebars"]
+	path = vim/bundle/vim-handlebars
+	url = https://github.com/nono/vim-handlebars.git
+  ignore = untracked
