@@ -98,13 +98,8 @@ autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.r
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
 
-" Plugins
-
-let Tlist_Use_Right_Window=1
-nnoremap <silent> <F8> :TlistToggle<CR>
-
-" let g:SuperTabDefaultCompletionType = "context"
-" let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+"let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " Maps
 
