@@ -60,7 +60,7 @@ set cursorline
 " set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%{exists('*rails#statusline')?rails#statusline():''}%{exists('*fugitive#statusline')?fugitive#statusline():''}%#ErrorMsg#%{exists('*SyntasticStatuslineFlag')?SyntasticStatuslineFlag():''}%*%=%-16(\ %l,%c-%v\ %)%P
 set statusline=[%n]\ %<%.99f\ %h%w%m%y%{exists('*rails#statusline')?rails#statusline():''}%#ErrorMsg#%{exists('*SyntasticStatuslineFlag')?SyntasticStatuslineFlag():''}%*%=%-16(\ %l,%c-%v\ %)%P
 
-set tags+=../tags,../../tags,../../../tags,../../../../tags,tmp/tags
+set tags+=../tags,../../tags,../../../tags,../../../../tags,tmp/tags,gems.tags
 set visualbell
 set nu
 set grepprg=ack " FTW
