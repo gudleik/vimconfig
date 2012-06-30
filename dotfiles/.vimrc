@@ -134,6 +134,9 @@ map <D-r> :CommandTFlush<CR>
 " Leader p: CommandT
 nmap <silent> <Leader>p :CommandT<CR>
 
+" CTRL-P
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 " CRTL-L: Redraw screen and hide highlighted search (nohlsearch)
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
