@@ -189,3 +189,9 @@
 [submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim/bundle/vim-ruby-conque"]
+	path = vim/bundle/vim-ruby-conque
+	url = git://github.com/skwp/vim-ruby-conque.git
+[submodule "vim/bundle/vim-conque"]
+	path = vim/bundle/vim-conque
+	url = git://github.com/rson/vim-conque.git
