@@ -189,6 +189,3 @@
 [submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "vim/bundle/vim-rubytest"]
-	path = vim/bundle/vim-rubytest
-	url = git://github.com/janx/vim-rubytest.git
