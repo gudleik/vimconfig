@@ -127,16 +127,11 @@ map <Leader>s :AV<CR>
 
 map <silent> <D-/> :TComment <CR>
 
-" Command-T
-set wildignore+=*.o,*.obj,*.png,*.gif,*.jpg,.git,tmp/*,vendor/ruby/*,vendor/cache/*
-" Cmd-R: Reload commandT
-"map <D-r> :CommandTFlush<CR>
-" Leader p: CommandT
-"nmap <silent> <Leader>p :CommandT<CR>
-
 " CTRL-P
 nmap <silent> <Leader>p :CtrlP<CR>
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+" Cmd-R: clear ctrlp cache
+map <D-r> :CtrlPClearAllCaches<CR>
 
 " CRTL-L: Redraw screen and hide highlighted search (nohlsearch)
 nnoremap <silent> <C-l> :nohl<CR><C-l>
