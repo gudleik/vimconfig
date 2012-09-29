@@ -94,4 +94,6 @@ colorscheme solarized
 " let g:solarized_hitrail=0
 " let g:solarized_menu=1
 
-source ~/.gvimrc.local
+if filereadable(expand("~/.gvimrc.local"))
+  source ~/.gvimrc.local
+endif
