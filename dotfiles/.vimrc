@@ -1,206 +1,104 @@
-" VIM configuration
-"
-filetype off
-silent! call pathogen#runtime_append_all_bundles()
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
 
-" colorscheme ir_black
-colorscheme ir_black
-set background=dark
+" TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
+" source ~/.vimrc.before if it exists.
+if filereadable(expand("~/.vimrc.before"))
+  source ~/.vimrc.before
+endif
 
-set nocompatible      " We're running Vim, not Vi!
-syntax on             " Enable syntax highlighting
-filetype on           " Enable filetype detection
-filetype indent on    " Enable filetype-specific indenting
-filetype plugin on    " Enable filetype-specific plugins
-set expandtab
-set tabstop=2 shiftwidth=2 softtabstop=2
+" =============== Pathogen Initialization ===============
+" This loads all the plugins in ~/.vim/bundle
+" Use tpope's pathogen plugin to manage all other plugins
+
+  runtime bundle/tpope-vim-pathogen/autoload/pathogen.vim
+  call pathogen#infect()
+  call pathogen#helptags()
+
+" ================ General Config ====================
+
+set number                      "Line numbers are good
+set backspace=indent,eol,start  "Allow backspace in insert mode
+set history=1000                "Store lots of :cmdline history
+set showcmd                     "Show incomplete cmds down the bottom
+set showmode                    "Show current mode down the bottom
+set gcr=a:blinkon0              "Disable cursor blink
+set visualbell                  "No sounds
+set autoread                    "Reload files changed outside vim
+
+" This makes vim act like all other editors, buffers can
+" exist in the background without being in a window.
+" http://items.sjbach.com/319/configuring-vim-right
+set hidden
+
+"turn on syntax highlighting
+syntax on
+
+" ================ Search Settings  =================
+
+set incsearch        "Find the next match as we type the search
+set hlsearch         "Hilight searches by default
+set viminfo='100,f1  "Save up to 100 marks, enable capital marks
+
+" ================ Turn Off Swap Files ==============
+
+set noswapfile
+set nobackup
+set nowb
+
+" ================ Persistent Undo ==================
+" Keep undo history across sessions, by storing in file.
+" Only works all the time.
+
+silent !mkdir ~/.vim/backups > /dev/null 2>&1
+set undodir=~/.vim/backups
+set undofile
+
+" ================ Indentation ======================
+
 set autoindent
-set syntax=automatic
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
 
-" Searching
-set hlsearch          " highlight search
-set incsearch         " search as you type
-set ignorecase        " ignore case when searching
-set smartcase         " ignore case when searching lowercase
-set showmatch
-set gdefault          " always assume /g when replacing
-set showmode
+filetype plugin on
+filetype indent on
 
-set modelines=0       "
-set encoding=utf-8
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
 
-set nowrap            " don't wrap long lines
-set linebreak         " wrap at word
-set ch=2              " make command line two lines
+set nowrap       "Don't wrap lines
+set linebreak    "Wrap lines at convenient points
 
-set backspace=indent,eol,start " make backspace a more flexible
-set backupdir=~/.vim_backup " where to put backup files
-set directory=~/.vim_tmp
+" ================ Folds ============================
 
-set foldmethod=syntax
-set foldlevel=20
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
 
-set laststatus=2 " always show the status line
-if has("mac")
-  silent! set nomacatsui
-else
-  set lazyredraw
-end
-set linespace=0 " don't insert any extra pixel lines betweens rows
-set nolist " show tabs and trailing spaces
-"set listchars=tab:>-,trail:- " show tabs and trailing spaces
-set listchars=tab:▸\ ,eol:¬
-set scrolloff=3 " Keep 4 lines (top/bottom) for scope
-set ruler
-set splitbelow
-set splitright
-set cursorline
+" ================ Completion =======================
 
+set wildmode=list:longest
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=*DS_Store*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
 
-" set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%{exists('*rails#statusline')?rails#statusline():''}%{exists('*fugitive#statusline')?fugitive#statusline():''}%#ErrorMsg#%{exists('*SyntasticStatuslineFlag')?SyntasticStatuslineFlag():''}%*%=%-16(\ %l,%c-%v\ %)%P
-set statusline=[%n]\ %<%.99f\ %h%w%m%y%{exists('*rails#statusline')?rails#statusline():''}%#ErrorMsg#%{exists('*SyntasticStatuslineFlag')?SyntasticStatuslineFlag():''}%*%=%-16(\ %l,%c-%v\ %)%P
+"
 
-set tags+=../tags,../../tags,../../../tags,../../../../tags,tmp/tags,gems.tags
-set visualbell
-set nu
-set grepprg=ack " FTW
+" ================ Scrolling ========================
 
-let loaded_netrw=1
-let loaded_netrwPlugin=1
-
-augroup RUBY
-  autocmd!
-  autocmd BufNewFile,BufRead */spec/**/*.rb,*_spec.rb compiler rspec
-  autocmd BufNewFile,BufRead */test/**/*.rb,*_test.rb compiler rubyunit
-  autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-  autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-  " next line causes macvim to crash :(
-  autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-  autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-augroup END
-compiler ruby
-
-" rspec files
-au BufNewFile,BufRead *_spec.rb set filetype=ruby.rspec
-
-" RABL is ruby
-au BufNewFile,BufRead *.rabl set filetype=ruby.rspec
-
-" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
-
-autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
-
-" Open fabricator files with :Rfabricator your_model
-autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
-
-" Enable syntastic syntax checking
-let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
-
-"let g:SuperTabDefaultCompletionType = "context"
-"let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-
-" Maps
-
-let mapleader = ","
-
-" Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Opens a tab edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>t
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
-" Switch between files
-map ,, <C-^>
-
-" Sweet VIM Rspec
-" map <D-r> :SweetVimRspecRunFile<CR>
-" map <D-R> :SweetVimRspecRunFocused<CR>
-" map <M-D-r> :SweetVimRspecRunPrevious<CR>
-
-map <silent> <Leader>r :!ctags --extra=+f -R *<CR><CR>
-map <Leader>s :AV<CR>
-" map <Leader>c :.Rake<CR>
-
-map <silent> <D-/> :TComment <CR>
-
-" CTRL-P
-nmap <silent> <Leader>p :CtrlP<CR>
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-" Cmd-R: clear ctrlp cache
-map <D-r> :CtrlPClearAllCaches<CR>
-
-" CRTL-L: Redraw screen and hide highlighted search (nohlsearch)
-nnoremap <silent> <C-l> :nohl<CR><C-l>
-
-" allow a more natural style of line editing in :ex mode
-cnoremap <C-A> <Home>
-cnoremap <C-E> <End>
-cnoremap <C-F> <Right>
-cnoremap <C-B> <Left>
-cnoremap <Esc>b <S-Left>
-cnoremap <Esc>f <S-Right>
-
-noremap <C-A> <Home>
-noremap <C-E> <End>
-map! <C-A> <Home>
-map! <C-E> <End>
-
-nnoremap <Leader>a :Ack
-nnoremap <Leader><space> :noh<cr>    " clear highlighted search with leader-space
-nnoremap <Leader>i :set list!<CR> " Toggle invisible chars
-nnoremap <Leader>v V`]  " select pasted text with leader-v
-inoremap jj <ESC>       " espape insert mode with jj
-
-" Switch tab with cmd-n
-" in command mode
-map <D-1> :tabn 1<CR>
-map <D-2> :tabn 2<CR>
-map <D-3> :tabn 3<CR>
-map <D-4> :tabn 4<CR>
-map <D-5> :tabn 5<CR>
-map <D-6> :tabn 6<CR>
-map <D-7> :tabn 7<CR>
-map <D-8> :tabn 8<CR>
-map <D-9> :tabn 9<CR>
-
-" insert mode
-map! <D-1> <C-O>:tabn 1<CR>
-map! <D-2> <C-O>:tabn 2<CR>
-map! <D-3> <C-O>:tabn 3<CR>
-map! <D-4> <C-O>:tabn 4<CR>
-map! <D-5> <C-O>:tabn 5<CR>
-map! <D-6> <C-O>:tabn 6<CR>
-map! <D-7> <C-O>:tabn 7<CR>
-map! <D-8> <C-O>:tabn 8<CR>
-map! <D-9> <C-O>:tabn 9<CR
-
-
-" Makegreen
-autocmd BufNewFile,BufRead *_spec.rb compiler rspec
-
-" Tabularize
-nmap <Leader>]= :Tabularize /=<CR>
-vmap <Leader>]= :Tabularize /=<CR>
-nmap <Leader>]: :Tabularize /:\zs<CR>
-vmap <Leader>]: :Tabularize /:\zs<CR>
-
-" Auto tabularize when entering |
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
-
-map   <silent> <F5> mmgg=G`m^
-imap  <silent> <F5> <Esc> mmgg=G`m^
-
+set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1

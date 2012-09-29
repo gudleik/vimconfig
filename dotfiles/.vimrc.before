@@ -1,0 +1,40 @@
+let mapleader = ","
+
+" let loaded_slim_syntax_checker = 1
+
+
+" CRTL-L: Redraw screen and hide highlighted search (nohlsearch)
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
+" allow a more natural style of line editing in :ex mode
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+cnoremap <C-F> <Right>
+cnoremap <C-B> <Left>
+cnoremap <Esc>b <S-Left>
+cnoremap <Esc>f <S-Right>
+noremap <C-A> <Home>
+noremap <C-E> <End>
+map! <C-A> <Home>
+map! <C-E> <End>
+
+" reformat
+map   <silent> <F5> mmgg=G`m^
+imap  <silent> <F5> <Esc> mmgg=G`m^
+
+" Switch between files
+map ,, <C-^>
+
+" ctrl-p
+" nmap <silent> <Leader>p :CtrlP<CR>
+" Cmd-R: clear ctrlp cache
+map <D-r> :CtrlPClearAllCaches<CR>
+
+" CRTL-L: Redraw screen and hide highlighted search (nohlsearch)
+nnoremap <silent> <C-l> :nohl<CR><
+
+" espape insert mode with jj
+inoremap jj <ESC>
+
+" Open alternate file (rails)
+map <Leader>s :AV<CR>
