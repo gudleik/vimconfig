@@ -1,0 +1,8 @@
+" CRTL-L: Redraw screen and hide highlighted search (nohlsearch)
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
+set background=dark
+
+au BufNewFile,BufRead *.skim set filetype=slim
+
+"let g:syntastic_echo_current_error = 1
