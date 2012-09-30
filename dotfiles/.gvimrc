@@ -4,6 +4,7 @@ if has("gui_macvim")
   "set guifont=Menlo:h13
   set guifont=DejaVu\ Sans\ Mono:h14
   " set guifont=Bitstream\ Vera\ Sans\ Mono:h16
+  set guifont=Inconsolata:h20
 
   set guioptions-=T  " remove toolbar
   set guioptions=egmrt
