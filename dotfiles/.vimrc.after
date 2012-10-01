@@ -6,3 +6,6 @@ set background=dark
 au BufNewFile,BufRead *.skim set filetype=slim
 
 "let g:syntastic_echo_current_error = 1
+
+vmap <D-]> >gv
+vmap <D-[> <gv
