@@ -1,6 +1,6 @@
 let mapleader = ","
 
-" let loaded_slim_syntax_checker = 1
+let loaded_slim_syntax_checker = 1
 
 
 " CRTL-L: Redraw screen and hide highlighted search (nohlsearch)
