@@ -4,7 +4,7 @@ if has("gui_running")
   set t_Co=256
 
   " http://ethanschoonover.com/solarized/vim-colors-solarized
-  colorscheme solarized
+  colorscheme Tomorrow-Night
   set background=dark
 
   " Show tab number (useful for Cmd-1, Cmd-2.. mapping)
