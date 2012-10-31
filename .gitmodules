@@ -228,7 +228,7 @@
   ignore = dirty
 [submodule "vim/bundle/VimEz-ShowMarks"]
 	path = vim/bundle/VimEz-ShowMarks
-	url = git://github.com/vimez/showmarks.git
+	url = git://github.com/vimez/vim-showmarks.git
   ignore = dirty
 [submodule "vim/bundle/kana-vim-arpeggio"]
 	path = vim/bundle/kana-vim-arpeggio
