@@ -1,7 +1,9 @@
 let mapleader = ","
 
+let loaded_syntastic_plugin = 1
 let loaded_slim_syntax_checker = 1
-
+let loaded_sass_syntax_checker = 1
+let loaded_cucumber_syntax_checker = 1
 
 " CRTL-L: Redraw screen and hide highlighted search (nohlsearch)
 nnoremap <silent> <C-l> :nohl<CR><C-l>

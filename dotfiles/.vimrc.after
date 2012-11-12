@@ -9,3 +9,4 @@ au BufNewFile,BufRead *.skim set filetype=slim
 
 vmap <D-]> >gv
 vmap <D-[> <gv
+
